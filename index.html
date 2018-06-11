@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta chrset="UTF-8">
+    <title>Train Scheduler</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script scr="assets/javascript/Scheduler.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="assets/images/logo.jpg" alt="US Railways Train Scheduler" id="logo">
+    </header>
+
+    <div id="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="tableHead">
+                    <h2>Current Train Schedule</h2>
+                </div>
+
+                <div class="table-responsive-sm">
+                    
+                    <table class="table table-stripped" id="schedule">
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Train&nbsp;Name</th>
+                                <th scope="col">destination</th>
+                                <th scope="col">Frequency&nbsp;(min)</th>
+                                <th scope="col">Next&nbsp;Arrival</th>
+                                <th scope="col">Minutes&nbsp;Away</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+
+                <div class="tableHead">
+                    <h2>Add Train</h2>
+                </div>
+
+                <div id="formHolder">
+
+                    <form role="form">
+
+                        <div class="form-group">
+                            <label for="trainName">Train Name</label>
+                            <input class="form-control" type="text" id="trainName" placeholder="Type Train Name Here">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <input class="form-control" type="text" id="destination" placeholder="Type Destination Here">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">First Train Time (HH:mm - Militay Time)</label>
+                            <input class="form-control" type="text" id="time" placeholder="Type Train Time Here">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frequency">Frequency (min)</label>
+                            <input class="form-control" type="text" id="frequency" placeholder="Type Freequency Here">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </form>
+
+                </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy;&nbsp;Paul Hoffman Design 2018</p>
+    </footer>
+
+</body>
+
+</html>
+
