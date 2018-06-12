@@ -17,6 +17,8 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script scr="assets/javascript/Scheduler.js"></script>
 
 </head>
@@ -44,7 +46,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Train&nbsp;Name</th>
-                                <th scope="col">destination</th>
+                                <th scope="col">Destination</th>
                                 <th scope="col">Frequency&nbsp;(min)</th>
                                 <th scope="col">Next&nbsp;Arrival</th>
                                 <th scope="col">Minutes&nbsp;Away</th>
@@ -67,25 +69,25 @@
 
                         <div class="form-group">
                             <label for="trainName">Train Name</label>
-                            <input class="form-control" type="text" id="trainName" placeholder="Type Train Name Here">
+                            <input class="form-control" type="text" id="trainName-input" placeholder="Enter Train Name Here">
                         </div>
 
                         <div class="form-group">
                             <label for="destination">Destination</label>
-                            <input class="form-control" type="text" id="destination" placeholder="Type Destination Here">
+                            <input class="form-control" type="text" id="destination-input" placeholder="Enter Destination Here">
                         </div>
 
                         <div class="form-group">
                             <label for="time">First Train Time (HH:mm - Militay Time)</label>
-                            <input class="form-control" type="text" id="time" placeholder="Type Train Time Here">
+                            <input class="form-control" type="text" id="time-input" placeholder="Enter Train Time Here">
                         </div>
 
                         <div class="form-group">
                             <label for="frequency">Frequency (min)</label>
-                            <input class="form-control" type="text" id="frequency" placeholder="Type Freequency Here">
+                            <input class="form-control" type="text" id="frequency-input" placeholder="Enter Freequency Here">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="addTrain-btn">Submit</button>
 
                     </form>
 
@@ -102,6 +104,8 @@
     <footer>
         <p>&copy;&nbsp;Paul Hoffman Design 2018</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </body>
 
