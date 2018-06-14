@@ -21,12 +21,14 @@ $("document").ready(function(){
     $("#addTrain-btn").on("click", function(event) {
             event.preventDefault();
 
+            console.log("hello");
+
         // Variables for capturing user imput
 
             var trainName = $("#trainName-input").val().trim();
             var newDest = $("#destination-input").val().trim();
             var trainTime = $("#time-input").val().trim();
-            var newFreq = $("#frequency-input").val().tri();
+            var newFreq = $("#frequency-input").val().trim();
 
         // Create object variable to hold data
 
@@ -41,10 +43,10 @@ $("document").ready(function(){
             database.ref().push(newTrain);
 
         // Logs everything to console
-            console.log(newTrain.trainName);
-            console.log(destination.newDest);
-            console.log(time.trainTime);
-            console.log(frequency.newFreq);
+            console.log(newTrain.train);
+            console.log(newTrain.destination);
+            console.log(newTrain.time);
+            console.log(newTrain.frequency);
 
         // Alert
             alert("New Train Sucessfully Added!");
@@ -61,14 +63,14 @@ $("document").ready(function(){
 
              database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
-                consol.log(childSnapshot.val());
+                console.log(childSnapshot.val());
 
             // Store everything into a variable.
 
-                var trainName = childSnapshot.val().name;
-                var newDest = childSnapshot.val().name;
-                var trainTime = childSnapshot.val().name;
-                var newFreq = childSnapshot.val().name;
+                var trainName = childSnapshot.val().train;
+                var newDest = childSnapshot.val().destination;
+                var trainTime = childSnapshot.val().time;
+                var newFreq = childSnapshot.val().frequency;
 
                 console.log(trainName);
                 console.log(newDest);
@@ -80,7 +82,7 @@ $("document").ready(function(){
                 var currentTime = moment();
                 console.log(moment(currentTime).format("hh:mm"));
 
-                var trainTimeConverted = moment(trainTime, "hh:mm").subtract(1, days);
+                var trainTimeConverted = moment(trainTime, "hh:mm").subtract(1, "days");
 
             // Subtract current time form entered train time.
 
@@ -94,18 +96,26 @@ $("document").ready(function(){
 
             // Minuter until the next train
 
-                var minsUntilTrain = newFrequency - remainder;
+                var minsUntilTrain = newFreq - remainder;
                 console.log("Time until next train: " + minsUntilTrain);
 
             // Calculate next train time
 
-                var nextTrainTime = moment().add(minUntilTrain, "minutes");
+                var nextTrainTime = moment().add(minsUntilTrain, "minutes");
                 console.log("Next Train: " + moment(nextTrainTime).format("hh:mm"));
 
             // Add each train's data into the table
-            
-                $("#schedule > tbody").append("<tr><td>" + trainName + "</td><td>" + newDest + "</td><td>" +
-                newFreq + "</td><td>" + moment(nextTrainTime).format("hh:mm") + "<td></td>" + minsUntilTrain);
+                
+                    var trainHtml = `<tr>
+                        <td>${trainName}</td>
+                        <td>${newDest}</td>
+                        <td>${newFreq}</td>
+                        <td>${moment(nextTrainTime).format('hh:mm')}</td>
+                        <td>${minsUntilTrain}</td>
+                    </tr>
+                    `
+
+                $("#schedule > tbody").append(trainHtml);
 
              });
 
